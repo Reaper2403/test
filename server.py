@@ -1,7 +1,7 @@
 import socket
 import threading
 
-host = "2405:201:a006:9001:3dea:5979:6a72:41e5"
+host = "2400:8904::f03c:93ff:fe97:a56e"
 port = 55555
 
 server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
