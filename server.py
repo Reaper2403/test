@@ -7,6 +7,7 @@ port = 55555
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
 server.bind((host, port))
 server.listen()
+
 clients = []
 nicknames = []
 
@@ -45,5 +46,5 @@ def recieve():
         thread.start()
 
 
-print("The server is listening....")
+print(f"The server is listening....\n host: {host},\nport: {port}")
 recieve()
