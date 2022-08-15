@@ -1,18 +1,19 @@
 import socket
 import threading
 
-host_name = socket.gethostname()
+#host_name = socket.gethostname()
 port = 55555
-tuple_IPV6=socket.getaddrinfo(host_name, port, socket.AF_INET6)
-host = tuple_IPV6[0][1][0]
+#host = socket.gethostbyname(host_name)
+host = "52.66.206.233"
 
 
-server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
 server.bind((host, port))
 server.listen()
 
 clients = []
 nicknames = []
+
 
 
 def broadcast(message):
