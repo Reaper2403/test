@@ -1,7 +1,7 @@
 import socket
 import threading
 
-client = socket.socket(socket.AF_INET4, socket.SOCK_STREAM)
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(("49.37.47.90", 55555))
 nick = input('Enter your nickname please to enter the chat: ')
 

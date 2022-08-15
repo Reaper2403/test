@@ -4,7 +4,7 @@ import threading
 host = "49.37.47.90"
 port = 55555
 
-server = socket.socket(socket.AF_INET4, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
 server.bind((host, port))
 server.listen()
 
