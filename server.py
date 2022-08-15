@@ -1,10 +1,13 @@
 import socket
 import threading
 
-host = "172.104.207.82"
+host_name = socket.gethostname()
 port = 55555
+tuple_IPV6=socket.getaddrinfo(host_name, port, socket.AF_INET6)
+host = tuple_IPV6[0][1][0]
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
+
+server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
 server.bind((host, port))
 server.listen()
 
