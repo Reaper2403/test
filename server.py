@@ -1,10 +1,9 @@
 import socket
 import threading
 
-#host_name = socket.gethostname()
+host_name = socket.gethostname()
 port = 55555
-#host = socket.gethostbyname(host_name)
-host = "52.66.206.233"
+host = socket.gethostbyname(host_name)
 
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
