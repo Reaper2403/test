@@ -1,7 +1,7 @@
 import socket
 import threading
 
-host_name = socket.gethostname()
+host_name = "0.0.0.0"
 port = 55555
 host = socket.gethostbyname(host_name)
 
