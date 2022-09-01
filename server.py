@@ -28,7 +28,7 @@ def handel_client(client):
             index = clients.index(client)
             clients.remove(client)
             nickname = nicknames[index]
-            broadcast(f'{nickname} has left the chat'.encode('ascii'))
+            broadcast(f'{nickname} has left the chat'.encode('ascii'), nickname)
             nicknames.remove(nickname)
             break
 
