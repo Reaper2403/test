@@ -5,7 +5,6 @@ host_name = "0.0.0.0"
 port = 55555
 host = socket.gethostbyname(host_name)
 
-
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Sock stream is for TCP protocols
 server.bind((host, port))
 server.listen()
@@ -14,17 +13,17 @@ clients = []
 nicknames = []
 
 
-
-def broadcast(message):
+def broadcast(message, person):
     for client in clients:
-        client.send(message)
+        if person != nicknames[clients.index(client)]:
+            client.send(message)
 
 
 def handel_client(client):
     while True:
         try:
             message = client.recv(1024)
-            broadcast(message)
+            broadcast(message, nicknames[clients.index(client)])
         except:
             index = clients.index(client)
             clients.remove(client)
@@ -43,7 +42,7 @@ def recieve():
         clients.append(client)
         nicknames.append(nick)
         print(f"Nickname of the client is {nick}")
-        broadcast(f'{nick} Joined the chat'.encode('ascii'))
+        broadcast(f'{nick} Joined the chat'.encode('ascii'), nick)
         client.send('Connected to the server'.encode('ascii'))
         thread = threading.Thread(target=handel_client, args=(client,))
         thread.start()

@@ -1,10 +1,11 @@
 import socket
 import threading
-
+from Server_IP import IP_AWS
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(("52.66.206.233", 55555))
+client.connect((IP_AWS, 55555))
 nick = input('Enter your nickname please to enter the chat: ')
+
 
 def recive():
     while True:
@@ -22,7 +23,7 @@ def recive():
 
 def write():
     while True:
-        message = f'{nick}: {input("")}'
+        message = f'{nick}:{input("")}'
         client.send(message.encode('ascii'))
 
 
@@ -31,4 +32,3 @@ recive_thread.start()
 
 write_thread = threading.Thread(target=write)
 write_thread.start()
-
